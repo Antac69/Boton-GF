@@ -1,22 +1,22 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-*::selection{
+*::selection {
     background: none;
 }
 
-:root{
+:root {
     --bg-body: #fabea7;
-    --bg-container:#fbe2e5;
-    --color-title:#767c77;
-    --color-text:#fbe2e5;
-    --bg-button:#9cada4;
+    --bg-container: #fbe2e5;
+    --color-title: #767c77;
+    --color-text: #fbe2e5;
+    --bg-button: #9cada4;
 }
 
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,8 +25,7 @@ body{
     background-color: var(--bg-body);
 }
 
-
-.container{
+.container {
     position: relative;
     display: grid;
     align-items: center;
@@ -40,20 +39,13 @@ body{
     transition: 1s ease;
 }
 
-.btns{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    height: 100%;
-}
-
-.title{
-    color:var(--color-title);
+.title {
+    color: var(--color-title);
     font-size: 2.5rem;
     pointer-events: none;
 }
 
-button{
+button {
     cursor: pointer;
     transition: .2s ease-in-out;
     font-size: 1.7rem;
@@ -67,12 +59,19 @@ button{
     color: var(--color-text);
 }
 
-button:active{
+button:active {
     filter: saturate(5);
     transition: .1ms;
 }
 
-.btn-close{
+.btns {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.btn-close {
     width: min-content;
     background: none;
     color: var(--color-title);
@@ -80,23 +79,27 @@ button:active{
     top: -.5rem;
     right: 0;
 }
-.modal{
+
+/* message */
+
+.modal {
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0, .5);
+    background-color: rgba(0, 0, 0, .5);
     transition: opacity 1s;
     opacity: 0;
     pointer-events: none;
 }
-.modal.active{
+
+.modal.active {
     opacity: 1;
     pointer-events: initial;
 }
 
-.message{
+.message {
     position: absolute;
-    translate: -50%  -50%;
+    translate: -50% -50%;
     top: 50%;
     left: 50%;
     width: 90%;
@@ -112,41 +115,42 @@ button:active{
 
 /* pulse Heart */
 
-.heart-in{
+.heart-in {
     position: relative;
 }
-.heart-in span:nth-of-type(1){
+
+.heart-in span:nth-of-type(1) {
     filter: opacity(0);
 }
 
-.heart{
-    animation:  pulso 1.5s linear infinite alternate;
+.heart {
+    animation: pulso 1.5s linear infinite alternate;
     transform: scale(1);
     position: absolute;
-    left:-5px;
+    left: -5px;
     top: -8px;
 }
 
-@keyframes pulso{
-    to{
+@keyframes pulso {
+    to {
         transform: scale(1.1);
     }
 }
 
-
 /* tablet size*/
-@media screen and (max-width:780px){
-    .container{
+
+@media screen and (max-width:780px) {
+    .container {
         width: 100vw;
         height: 100vh;
-        padding: .7rem;
+        padding: .3rem;
         align-content: center;
         gap: 5rem;
     }
-    button{
+    button {
         font-size: 1.3rem;
     }
-    .btn-close{
+    .btn-close {
         top: 0;
         right: 1%;
     }
