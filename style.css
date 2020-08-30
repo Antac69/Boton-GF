@@ -4,9 +4,150 @@
     box-sizing: border-box;
 }
 
-body{
-    min-height: 100vh;
+*::selection{
+    background: none;
 }
-.btn-no{
+
+:root{
+    --bg-body: #fabea7;
+    --bg-container:#fbe2e5;
+    --color-title:#767c77;
+    --color-text:#fbe2e5;
+    --bg-button:#9cada4;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: sans-serif;
+    background-color: var(--bg-body);
+}
+
+
+.container{
+    position: relative;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    background-color: var(--bg-container);
+    border-radius: .5rem;
+    padding: 2rem;
+    text-align: center;
+    overflow: hidden;
+    transition: 1s ease;
+}
+
+.btns{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.title{
+    color:var(--color-title);
+    font-size: 2.5rem;
+    pointer-events: none;
+}
+
+button{
+    cursor: pointer;
+    transition: .2s ease-in-out;
+    font-size: 1.7rem;
+    font-weight: 600;
+    width: 5em;
+    height: 2em;
+    padding: .25rem .5rem;
+    border-radius: 1em;
+    border: none;
+    background-color: var(--bg-button);
+    color: var(--color-text);
+}
+
+button:active{
+    filter: saturate(5);
+    transition: .1ms;
+}
+
+.btn-close{
+    width: min-content;
+    background: none;
+    color: var(--color-title);
     position: absolute;
+    top: -.5rem;
+    right: 0;
+}
+.modal{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, .5);
+    transition: opacity 1s;
+    opacity: 0;
+    pointer-events: none;
+}
+.modal.active{
+    opacity: 1;
+    pointer-events: initial;
+}
+
+.message{
+    position: absolute;
+    translate: -50%  -50%;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    max-width: 400px;
+    padding: 1rem;
+    border-radius: .5rem;
+    text-align: center;
+    position: absolute;
+    font-size: 3rem;
+    background-color: var(--bg-container);
+    color: var(--color-title);
+}
+
+/* pulse Heart */
+
+.heart-in{
+    position: relative;
+}
+.heart-in span:nth-of-type(1){
+    filter: opacity(0);
+}
+
+.heart{
+    animation:  pulso 1.5s linear infinite alternate;
+    transform: scale(1);
+    position: absolute;
+    left:-5px;
+    top: -8px;
+}
+
+@keyframes pulso{
+    to{
+        transform: scale(1.1);
+    }
+}
+
+
+/* tablet size*/
+@media screen and (max-width:780px){
+    .container{
+        width: 100vw;
+        height: 100vh;
+        padding: .7rem;
+        align-content: center;
+        gap: 5rem;
+    }
+    button{
+        font-size: 1.3rem;
+    }
+    .btn-close{
+        top: 0;
+        right: 1%;
+    }
 }
